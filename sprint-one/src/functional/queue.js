@@ -1,29 +1,23 @@
 var Queue = function(){
-	var instance = {};
-	var size = 0;
-	var storage = {};
-	var last;
+	var instance = {},
+	start = -1,
+	storage = {},
+	end = -1;
 
 	instance.dequeue = function() {
-		var temp = storage.first;
-		size--;
-		storage.first =
-		return temp;
+		instance.size() && start++;
+		var result = storage[start];
+		delete storage[start];
+		return result;
 	};
 
 	instance.enqueue = function(string) {
-		if (size > 0) {
-		storage[size] = storage.first;
-		storage.first = string;
-		size++;
-		} else {
-			size++;
-			storage.first = string;
-		}
+		end++;
+		storage[end] = string;
 	};
 
 	instance.size = function() {
-		return size;
+		return end - start;
 	};
 
 	return instance;
