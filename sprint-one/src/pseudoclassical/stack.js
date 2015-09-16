@@ -1,3 +1,5 @@
+'use strict';
+
 var Stack = function() {
 	this.index = 0;
 	this.storage = {};
