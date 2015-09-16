@@ -1,15 +1,31 @@
 
 
 var Graph = function(){
+	this._nodes = {};
+	return this;
 };
 
 Graph.prototype.addNode = function(node){
+	this._nodes[node] = {};
 };
 
 Graph.prototype.contains = function(node){
+	var found = false;
+	for (var key in this._nodes) {
+		if (key === node) {
+			found = true;
+			return found;
+		}
+	}
+	return found;
 };
 
-Graph.prototype.removeNode = function(node){
+Graph.prototype.removeNode = function(node) {
+		for(var key in this._nodes) {
+			if(key === node) {
+				delete this._nodes[key];
+			}
+		}
 };
 
 Graph.prototype.hasEdge = function(fromNode, toNode){

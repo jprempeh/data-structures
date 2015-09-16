@@ -39,7 +39,6 @@ treeMethods.contains = function(target) {
 			}
 		}
 	};
-
 	checkChildren(this);
 	return found;
 };
@@ -48,4 +47,8 @@ treeMethods.contains = function(target) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ *
+ * extend = linear
+ * addChild = constant O(n)
+ * contains = linear O(1)
  */
