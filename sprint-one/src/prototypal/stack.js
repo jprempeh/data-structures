@@ -25,3 +25,6 @@ stackMethods.size = function() {
 	return this.index;
 };
 
+stackMethods.peek = function() {
+	return this.storage[1];
+};

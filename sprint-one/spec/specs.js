@@ -85,6 +85,13 @@ define([
         stack.pop();
         expect(stack.pop()).to.equal('b');
       });
+
+	    it('returns the top element from the stack', function() {
+		    stack.push('meek');
+		    stack.push('minds');
+				stack.pop();
+		    expect(stack.peek()).to.equal('meek');
+	    })
     });
 
   });
