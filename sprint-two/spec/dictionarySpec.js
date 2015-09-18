@@ -14,6 +14,12 @@ describe('Dictionary', function(){
 		expect(dictionary.clear).to.be.a('function');
 	});
 
+	it('should set a value', function(){
+		dictionary.set('me', 'meme');
+		expect(dictionary.has('me')).to.equal(true);
+		expect(dictionary.has('cookies')).to.equal(false);
+	})
+
 	it('should get a value', function(){
 		dictionary.set('Rich', 'Gang');
 		expect(dictionary.get('Rich')).to.equal('Gang');
