@@ -64,7 +64,30 @@ setPrototype.intersection = function(otherSet) {
 };
 
 setPrototype.difference = function(otherSet) {
+	var values = this.values(),
+		i,
+		valueslength = values.length,
+		resultSet = Set();
+	for (i = 0; i < valueslength; i++) {
+		if(!otherSet.contains(values[i])) {
+			resultSet.add(values[i]);
+		}
+	}
+	return resultSet;
+};
 
+setPrototype.subset = function(otherSet){
+	if(this.size() > otherSet.size()) {
+		return false;
+	} else {
+		var properties = this.values();
+		for (var i = 0; i < properties.length; i++) {
+			if (!otherSet.contains([properties[i]])) {
+				return false;
+			}
+		}
+		return true;
+	}
 };
 
 /*

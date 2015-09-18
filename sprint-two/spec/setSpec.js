@@ -56,10 +56,39 @@ describe('set', function() {
     set2.add('Veruca');
     set2.add('Joe');
     var newSet = set1.intersection(set2);
-    console.log(newSet);
     expect(newSet.contains('Veruca')).to.equal(true);
     expect(newSet.contains('Joe')).to.equal(false);
+  });
 
+  it('should create an difference', function(){
+    set1.add('Dana');
+    set1.add('Veruca');
+    set1.add('Amber');
+    set2.add('Veruca');
+    set2.add('Joe');
+    var newSet = set1.difference(set2);
+    expect(newSet.contains('Dana')).to.equal(true);
+    expect(newSet.contains('Joe')).to.equal(false);
+    expect(newSet.contains('Veruca')).to.equal(false);
+  });
+
+  it('should return whenther a set is a subset of another set', function(){
+    var setA = Set();
+    setA.add(1);
+    setA.add(2);
+
+    var setB = Set();
+    setB.add(1);
+    setB.add(2);
+    setB.add(3);
+
+    var setC = Set();
+    setC.add(2);
+    setC.add(3);
+    setC.add(4);
+
+    expect(setA.subset(setB)).to.equal(true);
+    expect(setA.subset(setC)).to.equal(false);
   })
 
 });
